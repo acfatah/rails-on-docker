@@ -1,0 +1,5 @@
+services:
+  web:
+    environment:
+      RAILS_ENV: development
+      NODE_ENV: development
