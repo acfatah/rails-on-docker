@@ -23,6 +23,11 @@ module RailsMin
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.0
 
+    # Use STDOUT to log and let Docker handle the logging.
+    logger = ActiveSupport::Logger.new(STDOUT)
+    logger.formatter = config.log_formatter
+    config.logger = ActiveSupport::TaggedLogging.new(logger)
+
     # Configuration for the application, engines, and railties goes here.
     #
     # These settings can be overridden in specific environments using the files
